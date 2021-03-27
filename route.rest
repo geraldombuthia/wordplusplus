@@ -1,0 +1,34 @@
+GET http://localhost:3000/words/
+
+
+###
+
+POST http://localhost:3000/words
+Content-Type: application/json
+
+    { 
+    "word": "limbo",
+    "definition": "in an uncertain or undecided state or condition",
+    "plural": null,
+    "word_type": "noun",
+    "example": "after graduating from college, he was in limbo for a while, trying to decide what to do next.",
+    "synonyms": ["oblivion", "void", "non-existence", "unfinished", "uncertain", "pending"]
+    }
+###
+DELETE http://localhost:3000/words/605e1ad2b1eed6146c799397
+
+###
+PUT  http://localhost:3000/words/605e1ed6b1eed6146c7993a0
+Content-Type: application/json
+
+{
+
+            "word_type": "noun"
+}
+###
+PUT http://localhost:3000/words/newmeaning/605e075b603cda0f60b2dd05
+Content-Type: application/json
+
+
+                    "definition": "weak beer",
+                    "example": "a pickle of hear
