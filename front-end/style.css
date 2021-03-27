@@ -6,15 +6,16 @@
   font-family: "Poppins" sans-serif;
 }
 body {
-  min-height: 100vh;
+  max-height: 100vh;
   background: linear-gradient(
     to bottom,
     #ffffff,
     #ece6d1
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100vw;
+  max-width: 100vw;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  overflow: hidden;
 }
 nav {
   position: sticky;
