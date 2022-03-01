@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 const wordRouter = require("./routes/words")
 const cors = require("cors");
+let port = process.env.PORT || 3000
 
 
 app.use(express.urlencoded({ extended: true }))
@@ -15,6 +16,6 @@ mongoose.connect(process.env.CONNECTMONGO, { useNewUrlParser: true, useUnifiedTo
     console.log("Connected to db");
 })
 
-app.listen(3000, () => {
-    console.log("Listening....")
+app.listen(port, () => {
+    console.log("Listening...." + port)
 })
