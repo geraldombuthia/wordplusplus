@@ -8,6 +8,6 @@ The database used is Mongodb with mongoose being the scripting language of choic
 ## API Hosted
 This API is hosted and deployed on Heroku [Here](https://wordplusplus-api.herokuapp.com/)
 
-##APP
+## APP
 The application is hosted [Here](https://wordplusplus.netlify.com)
 
