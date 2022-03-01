@@ -15,7 +15,9 @@ require("dotenv").config();
 mongoose.connect(process.env.CONNECTMONGO, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log("Connected to db");
 })
-
+app.get("/", (req, res) => {
+    res.json("Welcome to word++")
+})
 app.listen(port, () => {
     console.log("Listening...." + port)
 })
