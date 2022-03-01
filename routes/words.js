@@ -61,7 +61,7 @@ router.put("/:id", getWord, async (req, res) => {
     if (req.body.example != null) {
         res.word.example = req.body.example
     }
-    if (req.body.syonyms != null) {
+    if (req.body.synonyms != null) {
         res.word.synonyms = req.body.synonyms
     }
     try {

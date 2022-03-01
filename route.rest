@@ -7,12 +7,12 @@ POST http://localhost:3000/words
 Content-Type: application/json
 
     { 
-    "word": "limbo",
-    "definition": "in an uncertain or undecided state or condition",
-    "plural": null,
+    "word": "exuberance",
+    "definition": "the quality of being full of energy, excitement, and cheerfulness; ebullience.",
+    "plural": "exuberances",
     "word_type": "noun",
-    "example": "after graduating from college, he was in limbo for a while, trying to decide what to do next.",
-    "synonyms": ["oblivion", "void", "non-existence", "unfinished", "uncertain", "pending"]
+    "example": "a sense of youthful exuberance",
+    "synonyms": ["ebullience", "buoyancy", "cheerfulness", "euphoria", "gaiety", "jubilation"]
     }
 ###
 DELETE http://localhost:3000/words/605e1ad2b1eed6146c799397
