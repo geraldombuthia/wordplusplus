@@ -13,7 +13,10 @@ router.get("/", async (req, res) => {
 })
 //getting one
 router.get("/:id", getWord, (req, res) => {
-
+    res.json(res.word)
+})
+//getting with a query
+router.get("/single/:word", getQueryWord, (req, res) => {
     res.json(res.word)
 })
 //creating one
@@ -27,7 +30,6 @@ router.post("/", async (req, res) => {
         example,
         synonyms
     })
-    try {
         Word.findOne({ word: word }, async (err, worddoc) => {
             if (worddoc) {
                return res.json({ message: "Word already exists" })
@@ -118,5 +120,27 @@ async function getWord(req, res, next) {
     next()
 }
 
+async function getQueryWord(req, res, next) {
+    let toSearch = req.params.word
+    let word
+    try {
+    // word = await Word.find({$text: {$search: toSearch}})// searches only in the word field, doesnt search in the synonyms field
+    //word = await Word.find({ "synonyms" : { $regex: `${toSearch}`, $options: 'i' } })// seaarches well in synonyms
+    word = await Word.find({
+        "$or": [
+            {$text: {$search: toSearch}},
+            { "synonyms" : { $regex: `${toSearch}`, $options: 'i' } }
+        ]
+    })
+    if (word == null) {
+            return res.status(404).json({ message: "Cannot find word" })
+        }
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+    res.word = word
+    next()
+}
 module.exports = router
 //There needs upsert handling for more than one meaning and more than one word type.

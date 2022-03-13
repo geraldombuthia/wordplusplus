@@ -35,4 +35,10 @@ const wordSchema = new mongoose.Schema({
     }
 })
 
+wordSchema.index({
+    word: 1,
+    definition: 1,
+    synonyms: 1
+})
+
 module.exports = mongoose.model("Word", wordSchema);
