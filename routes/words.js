@@ -46,25 +46,27 @@ router.post("/", async (req, res) => {
 //updating one
 router.put("/:id", getWord, async (req, res) => {
   if (req.body.word != null) {
-    res.word.word = req.body.word;
+    res.word.word = req.body.word.toLowerCase();
   }
   if (req.body.approved != null) {
     res.word.approved = req.body.approved;
   }
   if (req.body.word_type != null) {
-    res.word.word_type = req.body.word_type;
+    res.word.word_type = req.body.word_type.toLowerCase();
   }
   if (req.body.plural != null) {
-    res.word.plural = req.body.plural;
+    res.word.plural = req.body.plural.toLowerCase();
   }
   if (req.body.definition != null) {
-    res.word.definition = req.body.definition;
+    res.word.definition = req.body.definition.toLowerCase();
   }
   if (req.body.example != null) {
-    res.word.example = req.body.example;
+    res.word.example = req.body.example.toLowerCase();
   }
   if (req.body.synonyms != null) {
-    res.word.synonyms = req.body.synonyms;
+      let newSynonyms = [];
+      req.body.synonyms.forEach(i => newSynonyms.push(i.toLowerCase()))
+    res.word.synonyms = newSynonyms;
   }
   try {
     const updateWord = await res.word.save();
