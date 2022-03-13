@@ -13,7 +13,7 @@ app.use(cors());
 app.use("/words", wordRouter);
 require("dotenv").config();
 
-mongoose.connect(process.env.CONNECTMONGO, { useNewUrlParser: true, useUnifiedTopology: true, autoIndex: true }, () => {
+mongoose.connect(process.env.CONNECTMONGO, { useNewUrlParser: true, useUnifiedTopology: true}, () => {
     console.log("Connected to db");
 })
 
